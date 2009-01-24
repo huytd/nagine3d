@@ -2,7 +2,7 @@
 #include "IntroState.h"
 #include "Utility.h"
 #include "DotScene.h"
-#include "ReflectiveFactory.h"
+#include "OgreHead.h"
 
 using namespace Ogre;
 
@@ -25,10 +25,8 @@ void Level1::enter()
 	mViewport = mRoot->getAutoCreatedWindow()->addViewport(mCamera);
 	mViewport->setBackgroundColour(ColourValue::Black);
 
-	//node->setPosition(node->getPosition() + Vector3(0,15,0));
-	Utility::createGEntity("OgreHead3", mRoot, mSceneMgr);
-	
-	//mCamera->lookAt(node->getPosition());
+	OgreHead* oh = new OgreHead("HeadMesh4", mRoot, mSceneMgr);
+	oh->lookatme();
 
 	mExitGame = false;
 }

@@ -3,7 +3,6 @@
 #include <OIS/OIS.h>
 #include <CEGUI/CEGUI.h>
 #include <OgreCEGUIRenderer.h>
-#include "MovableText.h"
 
 using namespace Ogre;
 
@@ -20,5 +19,5 @@ public:
 	void tellScreenW(int sW);
 	void tellScreenH(int sH);
 	static void drawIMG(Ogre::SceneManager *mSceneMgr, Ogre::String imgName, Ogre::String imgFileName, Ogre::Real x1=-1.0, Ogre::Real y1=1.0, Ogre::Real x2=1.0, Ogre::Real y2=-1.0);
-	static void createGEntity(const char *entityName, Ogre::Root *mR, Ogre::SceneManager *mS);
+
 };
