@@ -273,6 +273,10 @@
 			Name="Entities"
 			>
 			<File
+				RelativePath=".\nEntity.h"
+				>
+			</File>
+			<File
 				RelativePath=".\OgreHead.cpp"
 				>
 			</File>

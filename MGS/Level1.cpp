@@ -9,6 +9,7 @@ using namespace Ogre;
 Level1 Level1::mLevel1;
 SceneNode* worldNode;
 CDotScene* myDotScene;
+OgreHead* oh;
 
 void Level1::enter()
 {
@@ -25,7 +26,7 @@ void Level1::enter()
 	mViewport = mRoot->getAutoCreatedWindow()->addViewport(mCamera);
 	mViewport->setBackgroundColour(ColourValue::Black);
 
-	OgreHead* oh = new OgreHead("HeadMesh4", mRoot, mSceneMgr);
+	oh = new OgreHead("HeadMesh3", mRoot, mSceneMgr);
 	oh->lookatme();
 
 	mExitGame = false;
@@ -47,6 +48,7 @@ void Level1::resume()
 
 bool Level1::frameStarted(const FrameEvent& evt)
 {
+	oh->getNode()->yaw(Degree(evt.timeSinceLastFrame * 30));
 	return true;
 }
 
