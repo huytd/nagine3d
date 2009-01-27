@@ -17,7 +17,7 @@ void IntroState::enter()
 	mViewport = mRoot->getAutoCreatedWindow()->addViewport(mCamera);
 	mViewport->setBackgroundColour(ColourValue(1.0, 1.0, 1.0));
 
-	Utility::drawIMG(mSceneMgr, "Background", "BeachStones.jpg");
+	Utility::drawIMG(mSceneMgr, "Background", "SplashScreen.jpg", -1, 1, 1,-1);
 
 	mExitGame = false;
 }

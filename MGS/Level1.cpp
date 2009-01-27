@@ -1,33 +1,41 @@
-﻿#include "Level1.h"
+﻿#include "Level1.h"	
 #include "IntroState.h"
 #include "Utility.h"
 #include "DotScene.h"
-#include "OgreHead.h"
+//#include "OgreHead.h"
+#include "OgreOSMScene.h"
 
 using namespace Ogre;
 
 Level1 Level1::mLevel1;
-SceneNode* worldNode;
-CDotScene* myDotScene;
-OgreHead* oh;
+//SceneNode* worldNode;
+//CDotScene* myDotScene;
+//OgreHead* oh;
 
 void Level1::enter()
 {
 	mRoot = Root::getSingletonPtr();
+	/*=====Load .scene scene using DotScene Loader========
 	mSceneMgr = mRoot->createSceneManager(ST_GENERIC);
 	mSceneMgr->setAmbientLight( ColourValue( 1, 1, 1 ) );
 	
 	worldNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("worldRootNode");
 	myDotScene = new CDotScene();
 	myDotScene->parseDotScene("test.scene", "General", mSceneMgr, mSceneMgr->getSceneNode("worldRootNode"));
-
-	mCamera = mSceneMgr->getCamera("Camera01");
 	
 	mViewport = mRoot->getAutoCreatedWindow()->addViewport(mCamera);
 	mViewport->setBackgroundColour(ColourValue::Black);
-
+	
 	oh = new OgreHead("HeadMesh3", mRoot, mSceneMgr);
-	oh->lookatme();
+	oh->lookatme();*/
+	
+	/*=====Load .OSM scene using oFusion======*/
+	OSMScene oScene;
+	oScene.initialise("test2.osm"); 
+	oScene.createScene();          
+	mSceneMgr = oScene.getSceneManager();
+
+	mCamera = mSceneMgr->getCamera("Camera01");
 
 	mExitGame = false;
 }
@@ -48,7 +56,7 @@ void Level1::resume()
 
 bool Level1::frameStarted(const FrameEvent& evt)
 {
-	oh->getNode()->yaw(Degree(evt.timeSinceLastFrame * 30));
+	//oh->getNode()->yaw(Degree(evt.timeSinceLastFrame * 30));
 	return true;
 }
 
