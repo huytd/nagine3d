@@ -1,0 +1,3 @@
+@echo Copy all header files...
+copy inc\*.h ..\..\Game\Game\Nagine3DFramework\na3de\include
+pause
